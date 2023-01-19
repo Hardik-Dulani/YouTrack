@@ -3,6 +3,7 @@ from deta import Deta
 import streamlit as st
 from dotenv import load_dotenv
 import os
+from openpyxl import Workbook
 
 # Fetching credentials
 load_dotenv('.env')
@@ -68,7 +69,7 @@ if authentication_status == False or authentication_status == None:
             insert_user(username, name_user, password)
             st.success('Registered Successfully,scroll up and login ')
 
-if authentication_status:
+if authentication_status ==  True:
     # Home page starts here
     st.header(f'Welcome {name}')
     authenticator.logout('Log out', 'sidebar')
